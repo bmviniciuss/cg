@@ -46,32 +46,85 @@ Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos l
 
 ## 2 - drawLine(Pixel initialPixel, Pixel finalPixel)
 
+A função drawLine recebe dois pixels como parãmetros, é utilizado o algoritimo de Bresenham para realizar a rasterização da linha. É feito, também, a interpolação de cores. Que funciona da seguinte forma:
+
+```c++
+  /* Rate Direction */
+  float direction = (abs(dx) >= abs(dy)) ? dx : dy;
+
+  /* Compute RGB change */
+  double changeR, changeG, changeB, changeA;
+
+  R = currentPixel.R;
+  G = currentPixel.G;
+  B = currentPixel.B;
+  A = currentPixel.A;
+
+  changeR = (double)(pFinal.R - pInitial.R) / abs(direction);
+  changeG = (double)(pFinal.G - pInitial.G) / abs(direction);
+  changeB = (double)(pFinal.B - pInitial.B) / abs(direction);
+  changeA = (double)(pFinal.A - pInitial.A) / abs(direction);
+```
+
+Primeiro e calculado a direção da linha, para saber se o valor será divido pela taxa de variação em X ou em Y. Depois é calculado a taxa de variação para cada canal de cor. Com a seguinte formula:
+`(corFinal - corInicial) / módulo(direção)` com esse valor calculado a cada passagem do algoritmo a cor do pixel é incrementada em cada canal. As variáveis `R`,`G`,`B` e `A` recebem a cor do pixel inicial e com o decorrer do algoritmo os valores são incrementados.
+
+```c++
+  /* Color Increments */
+  R += changeR;
+  G += changeG;
+  B += changeB;
+  A += changeA;
+
+  /* Change current color */
+  currentPixel.R = R;
+  currentPixel.G = G;
+  currentPixel.B = B;
+  currentPixel.A = A;
+
+  putPixel(currentPixel);
+```
+
 <p align="center"> 
 <img src="./assets/Screenshot_20190211_221904.png" height="500">
 </p>
+Código da imagem:
 
-<details>
-<summary> Código da Imagem </summary><p>
+```c++
+  /* Left -> Right Diagonal */
+  Pixel initialPixelLeftRightDiagonal(0, 0, 0, 0, 255, 255);
+  Pixel finalPixelLeftRightDiagonal(512, 512, 255, 0, 127, 255);
+  drawLine(initialPixelLeftRightDiagonal, finalPixelLeftRightDiagonal);
 
-    /* Left -> Right Diagonal */
-    Pixel initialPixelLeftRightDiagonal(0, 0, 0, 0, 255, 255);
-    Pixel finalPixelLeftRightDiagonal(512, 512, 255, 0, 127, 255);
-    drawLine(initialPixelLeftRightDiagonal, finalPixelLeftRightDiagonal);
+  /* Right-> Left Diagonal */
+  Pixel initialPixelRightLeftDiagonal(512, 0, 255, 255, 0, 255);
+  Pixel finalPixelRightLeftDiagonal(0, 512, 0, 255, 255, 255);
+  drawLine(initialPixelRightLeftDiagonal, finalPixelRightLeftDiagonal);
 
-    /* Right-> Left Diagonal */
-    Pixel initialPixelRightLeftDiagonal(512, 0, 255, 255, 0, 255);
-    Pixel finalPixelRightLeftDiagonal(0, 512, 0, 255, 255, 255);
-    drawLine(initialPixelRightLeftDiagonal, finalPixelRightLeftDiagonal);
+  /* Center Vertical */
+  Pixel initialPixelCenterVertical(255, 0, 0, 255, 0, 255);
+  Pixel finalPixelCenterVertical(255, 512, 127, 0, 255, 255);
+  drawLine(initialPixelCenterVertical, finalPixelCenterVertical);
 
-    /* Center Vertical */
-    Pixel initialPixelCenterVertical(255, 0, 0, 255, 0, 255);
-    Pixel finalPixelCenterVertical(255, 512, 127, 0, 255, 255);
-    drawLine(initialPixelCenterVertical, finalPixelCenterVertical);
+  /* Center Horizontal */
+  Pixel initialPixelCenterHorizontal(0, 255, 255, 0, 0, 255);
+  Pixel finalPixelCenterHorizontal(511, 255, 255, 127, 0, 255);
+  drawLine(initialPixelCenterHorizontal, finalPixelCenterHorizontal);
+```
 
-    /* Center Horizontal */
-    Pixel initialPixelCenterHorizontal(0, 255, 255, 0, 0, 255);
-    Pixel finalPixelCenterHorizontal(511, 255, 255, 127, 0, 255);
-    drawLine(initialPixelCenterHorizontal, finalPixelCenterHorizontal);
+### Teste dos Octantes
 
-  </p>
-</details>
+<p align="center"> 
+<img src="./assets/Screenshot_20190211_223426.png" height="500">
+</p>
+
+## 3 - drawTriangle(Pixel p1, Pixel p2, Pixel p3)
+
+```c++
+void drawTriangle(Pixel p1, Pixel p2, Pixel p3)
+{
+  drawLine(p1, p2);
+  drawLine(p2, p3);
+  drawLine(p3, p1);
+}
+```

@@ -120,8 +120,8 @@ void MyGlDraw(void)
 	// Chame aqui as funções do mygl.h
 	//*************************************************************************
 
-	// octantTest();
-	drawCrossHair();
+	octantTest();
+	// drawCrossHair();
 	// triangleTest();
 }
 
