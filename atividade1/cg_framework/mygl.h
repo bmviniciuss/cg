@@ -8,7 +8,7 @@
 // Defina aqui as suas funções gráficas
 //*****************************************************************************
 
-void PutPixel(Pixel pixel)
+void putPixel(Pixel pixel)
 {
   if (pixel.x < 0 || pixel.x >= IMAGE_WIDTH || pixel.y < 0 || pixel.y >= IMAGE_HEIGHT)
   {
@@ -48,7 +48,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
   changeA = (double)(pFinal.A - pInitial.A) / abs(direction);
 
   /* Draw First Pixel*/
-  PutPixel(currentPixel);
+  putPixel(currentPixel);
 
   /* Check octants */
   if (dx < 0) // 3rd,4th,5th or 6th octant
@@ -97,7 +97,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
           currentPixel.B = B;
           currentPixel.A = A;
 
-          PutPixel(currentPixel);
+          putPixel(currentPixel);
         }
       }
       else // 2nd octant
@@ -135,7 +135,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
           currentPixel.B = B;
           currentPixel.A = A;
 
-          PutPixel(currentPixel);
+          putPixel(currentPixel);
         }
       }
     }
@@ -173,7 +173,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
           currentPixel.B = B;
           currentPixel.A = A;
 
-          PutPixel(currentPixel);
+          putPixel(currentPixel);
         }
       }
       else // 8th octante
@@ -208,7 +208,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
           currentPixel.B = B;
           currentPixel.A = A;
 
-          PutPixel(currentPixel);
+          putPixel(currentPixel);
         }
       }
     }
