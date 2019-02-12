@@ -85,23 +85,23 @@ void octantTest()
 void drawCrossHair()
 {
 	/* Left -> Right Diagonal */
-	Pixel initialPixelLeftRightDiagonal(0, 0, 255, 255, 255, 255);
-	Pixel finalPixelLeftRightDiagonal(512, 512, 255, 255, 255, 255);
+	Pixel initialPixelLeftRightDiagonal(0, 0, 0, 0, 255, 255);
+	Pixel finalPixelLeftRightDiagonal(512, 512, 255, 0, 127, 255);
 	drawLine(initialPixelLeftRightDiagonal, finalPixelLeftRightDiagonal);
 
 	/* Right-> Left Diagonal */
-	Pixel initialPixelRightLeftDiagonal(512, 0, 255, 255, 255, 255);
-	Pixel finalPixelRightLeftDiagonal(0, 512, 255, 255, 255, 255);
+	Pixel initialPixelRightLeftDiagonal(512, 0, 255, 255, 0, 255);
+	Pixel finalPixelRightLeftDiagonal(0, 512, 0, 255, 255, 255);
 	drawLine(initialPixelRightLeftDiagonal, finalPixelRightLeftDiagonal);
 
 	/* Center Vertical */
-	Pixel initialPixelCenterVertical(255, 0, 255, 255, 255, 255);
-	Pixel finalPixelCenterVertical(255, 512, 255, 255, 255, 255);
+	Pixel initialPixelCenterVertical(255, 0, 0, 255, 0, 255);
+	Pixel finalPixelCenterVertical(255, 512, 127, 0, 255, 255);
 	drawLine(initialPixelCenterVertical, finalPixelCenterVertical);
 
 	/* Center Horizontal */
-	Pixel initialPixelCenterHorizontal(0, 255, 255, 255, 255, 255);
-	Pixel finalPixelCenterHorizontal(511, 255, 255, 255, 255, 255);
+	Pixel initialPixelCenterHorizontal(0, 255, 255, 0, 0, 255);
+	Pixel finalPixelCenterHorizontal(511, 255, 255, 127, 0, 255);
 	drawLine(initialPixelCenterHorizontal, finalPixelCenterHorizontal);
 }
 
@@ -121,7 +121,7 @@ void MyGlDraw(void)
 	//*************************************************************************
 
 	// octantTest();
-	// drawCrossHair();
+	drawCrossHair();
 	// triangleTest();
 }
 

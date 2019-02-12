@@ -42,4 +42,36 @@ void putPixel(Pixel pixel)
 }
 ```
 
-Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele estja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o calculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
+Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele estja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o cálculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
+
+## 2 - drawLine(Pixel initialPixel, Pixel finalPixel)
+
+<p align="center"> 
+<img src="./assets/Screenshot_20190211_221904.png" height="500">
+</p>
+
+<details>
+<summary> Código da Imagem </summary><p>
+
+    /* Left -> Right Diagonal */
+    Pixel initialPixelLeftRightDiagonal(0, 0, 0, 0, 255, 255);
+    Pixel finalPixelLeftRightDiagonal(512, 512, 255, 0, 127, 255);
+    drawLine(initialPixelLeftRightDiagonal, finalPixelLeftRightDiagonal);
+
+    /* Right-> Left Diagonal */
+    Pixel initialPixelRightLeftDiagonal(512, 0, 255, 255, 0, 255);
+    Pixel finalPixelRightLeftDiagonal(0, 512, 0, 255, 255, 255);
+    drawLine(initialPixelRightLeftDiagonal, finalPixelRightLeftDiagonal);
+
+    /* Center Vertical */
+    Pixel initialPixelCenterVertical(255, 0, 0, 255, 0, 255);
+    Pixel finalPixelCenterVertical(255, 512, 127, 0, 255, 255);
+    drawLine(initialPixelCenterVertical, finalPixelCenterVertical);
+
+    /* Center Horizontal */
+    Pixel initialPixelCenterHorizontal(0, 255, 255, 0, 0, 255);
+    Pixel finalPixelCenterHorizontal(511, 255, 255, 127, 0, 255);
+    drawLine(initialPixelCenterHorizontal, finalPixelCenterHorizontal);
+
+  </p>
+</details>

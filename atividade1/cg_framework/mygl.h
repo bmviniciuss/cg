@@ -58,7 +58,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
   }
   else // 1st,2nd,7th or 8th octant
   {
-    if (dy > 0) // 1st or 2nd octant
+    if (dy >= 0) // 1st or 2nd octant
     {
 
       if (abs(dx) >= abs(dy)) // 1st octant
