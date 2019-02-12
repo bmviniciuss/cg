@@ -134,3 +134,17 @@ void drawTriangle(Pixel p1, Pixel p2, Pixel p3)
 <p align="center"> 
 <img src="./assets/Screenshot_20190212_173533.png" height="500">
 </p>
+
+Código da imagem:
+
+```c++
+	Pixel p1(255, 150, 255, 0, 0, 255);
+	Pixel p2(255, 450, 255, 127, 0, 255);
+	Pixel p3(125, 500, 255, 255, 0, 255);
+	Pixel p4(280, 150, 255, 0, 0, 255);
+	Pixel p5(490, 15, 0, 255, 0, 255);
+	Pixel p6(400, 450, 0, 0, 255, 255);
+
+	drawTriangle(p1, p2, p3);
+	drawTriangle(p4, p5, p6);
+```
