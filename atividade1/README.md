@@ -120,6 +120,8 @@ Código da imagem:
 
 ## 3 - drawTriangle(Pixel p1, Pixel p2, Pixel p3)
 
+A função de desenhar triângulo recebe três pixels como parâmetro e faz a chamada da função `drawLine()` ligando os vétices.
+
 ```c++
 void drawTriangle(Pixel p1, Pixel p2, Pixel p3)
 {
@@ -128,3 +130,7 @@ void drawTriangle(Pixel p1, Pixel p2, Pixel p3)
   drawLine(p3, p1);
 }
 ```
+
+<p align="center"> 
+<img src="./assets/Screenshot_20190212_173533.png" height="500">
+</p>
