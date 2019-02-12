@@ -36,6 +36,7 @@ void drawLine(Pixel pInitial, Pixel pFinal)
   /* Compute RGB change */
   double changeR, changeG, changeB, changeA;
   float R, G, B, A;
+
   R = currentPixel.R;
   G = currentPixel.G;
   B = currentPixel.B;
@@ -83,15 +84,19 @@ void drawLine(Pixel pInitial, Pixel pFinal)
             currentPixel.y++;
             currentPixel.x++;
           }
+
+          /* Color Increments */
           R += changeR;
           G += changeG;
           B += changeB;
           A += changeA;
 
+          /* Change current color */
           currentPixel.R = R;
           currentPixel.G = G;
           currentPixel.B = B;
           currentPixel.A = A;
+
           PutPixel(currentPixel);
         }
       }
@@ -117,15 +122,19 @@ void drawLine(Pixel pInitial, Pixel pFinal)
             currentPixel.x++;
             currentPixel.y++;
           }
+
+          /* Color Increments */
           R += changeR;
           G += changeG;
           B += changeB;
           A += changeA;
 
+          /* Change current color */
           currentPixel.R = R;
           currentPixel.G = G;
           currentPixel.B = B;
           currentPixel.A = A;
+
           PutPixel(currentPixel);
         }
       }
@@ -151,15 +160,19 @@ void drawLine(Pixel pInitial, Pixel pFinal)
             currentPixel.x++;
             currentPixel.y--;
           }
+
+          /* Color Increments */
           R += changeR;
           G += changeG;
           B += changeB;
           A += changeA;
 
+          /* Change current color */
           currentPixel.R = R;
           currentPixel.G = G;
           currentPixel.B = B;
           currentPixel.A = A;
+
           PutPixel(currentPixel);
         }
       }
@@ -183,11 +196,13 @@ void drawLine(Pixel pInitial, Pixel pFinal)
             currentPixel.y--;
           }
 
+          /* Color Increments */
           R += changeR;
           G += changeG;
           B += changeB;
           A += changeA;
 
+          /* Change current color */
           currentPixel.R = R;
           currentPixel.G = G;
           currentPixel.B = B;

@@ -1,7 +1,8 @@
 #include "main.h"
 
-void testeOctante()
+void octantTest()
 {
+	/*
 	int red[4] = {255, 0, 0, 255};
 	int orange[4] = {255, 127, 0, 255};
 	int yellow[4] = {255, 255, 0, 255};
@@ -11,115 +12,117 @@ void testeOctante()
 	int purple[4] = {127, 0, 255, 255};
 	int pink[4] = {255, 0, 127, 255};
 	int white[4] = {255, 255, 255, 255};
+	*/
 
 	int i;
 	int step = 15;
 
-	/* 1 octante*/
-	// for (int i = 255; i < 512; i += step)
-	// {
-	// 	Pixel p_primeiro_i(255, 255, 255, 0, 0, 255);
-	// 	Pixel p_primeiro_f(512, i, 0, 0, 255, 255);
-	// 	drawLine(p_primeiro_i, p_primeiro_f);
-	// }
+	/* 1st Octant */
+	for (int i = 255; i < 512; i += step)
+	{
+		Pixel initialPixelFirstOctant(255, 255, 255, 0, 0, 255);
+		Pixel finalPixelFirstOctant(512, i, 0, 0, 255, 255);
+		drawLine(initialPixelFirstOctant, finalPixelFirstOctant);
+	}
 
-	/* 2 octante*/
-	// for (int i = 512; i >= 255; i -= step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, orange);
-	// 	Pixel p_segundo_f(i, 512, orange);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
+	/* 2nd Octant */
+	for (int i = 512; i >= 255; i -= step)
+	{
+		Pixel initialPixelSecondOctant(255, 255, 255, 127, 0, 255);
+		Pixel finalPixelSecondOctant(i, 512, 255, 0, 127, 255);
+		drawLine(initialPixelSecondOctant, finalPixelSecondOctant);
+	}
 
-	// /* 3 octante*/
-	// for (int i = 255; i >= 0; i -= step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, yellow);
-	// 	Pixel p_segundo_f(i, 512, yellow);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
+	/* 3rd Octant */
+	for (int i = 255; i >= 0; i -= step)
+	{
+		Pixel initialPixelThirdOctant(255, 255, 255, 255, 0, 255);
+		Pixel finalPixelThirdOctant(i, 512, 0, 255, 0, 255);
+		drawLine(initialPixelThirdOctant, finalPixelThirdOctant);
+	}
 
-	// /* 4 octante*/
-	// for (int i = 255; i <= 512; i += step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, green);
-	// 	Pixel p_segundo_f(0, i, green);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
+	/* 4th Octant */
+	for (int i = 255; i <= 512; i += step)
+	{
+		Pixel initialPixelFourthOctant(255, 255, 255, 127, 0, 255);
+		Pixel finalPixelFourthOctant(0, i, 0, 0, 255, 255);
+		drawLine(initialPixelFourthOctant, finalPixelFourthOctant);
+	}
 
-	// /* 5 octante*/
-	// for (int i = 255; i >= 0; i -= step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, ligh_blue);
-	// 	Pixel p_segundo_f(0, i, ligh_blue);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
+	/* 5th Octant */
+	for (int i = 255; i >= 0; i -= step)
+	{
+		Pixel initialPixelFifthOctant(255, 255, 0, 255, 255, 255);
+		Pixel finalPixelFifthOctant(0, i, 0, 255, 0, 255);
+		drawLine(initialPixelFifthOctant, finalPixelFifthOctant);
+	}
 
-	// /* 6 octante*/
-	// for (int i = 0; i <= 255; i += step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, blue);
-	// 	Pixel p_segundo_f(i, 0, blue);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
+	/* 6th Octant */
+	for (int i = 0; i <= 255; i += step)
+	{
+		Pixel initialPixelSixthOctant(255, 255, 127, 0, 255, 255);
+		Pixel finalPixelSixOctant(i, 0, 255, 127, 0, 255);
+		drawLine(initialPixelSixthOctant, finalPixelSixOctant);
+	}
 
-	// /* 7 octante*/
-	// for (int i = 255; i <= 512; i += step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, purple);
-	// 	Pixel p_segundo_f(i, 0, purple);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
+	/* 7th Octant */
+	for (int i = 255; i <= 512; i += step)
+	{
+		Pixel initialPixelSeventhOctant(255, 255, 0, 255, 255, 255);
+		Pixel finalPixelSeventhOctant(i, 0, 255, 0, 127, 255);
+		drawLine(initialPixelSeventhOctant, finalPixelSeventhOctant);
+	}
 
-	// /* 8 octante*/
-	// for (int i = 0; i <= 255; i += step)
-	// {
-	// 	Pixel p_segundo_i(255, 255, pink);
-	// 	Pixel p_segundo_f(512, i, pink);
-	// 	drawLine(p_segundo_i, p_segundo_f);
-	// }
-
-	// /* DIAGONAL ESQ-> DIREITA*/
-	// Pixel p_ded_i(0, 0, white);
-	// Pixel p_ded_f(512, 512, white);
-	// drawLine(p_ded_i, p_ded_f);
-
-	// /* DIAGONAL ESQ-> DIREITA*/
-	// Pixel p_dde_i(512, 0, white);
-	// Pixel p_dde_f(0, 512, white);
-	// drawLine(p_dde_i, p_dde_f);
-
-	// /* VERTICAL CENTRAL */
-	// Pixel p_vc_i(255, 0, white);
-	// Pixel p_vc_f(255, 512, white);
-	// drawLine(p_vc_i, p_vc_f);
-
-	// /* HORIZONTAL CENTRO */
-	// int vertial = 255;
-	// Pixel p_hc_i(0, vertial, white);
-	// Pixel p_hc_f(511, vertial, white);
-	// drawLine(p_hc_i, p_hc_f);
+	/* 8th Octant */
+	for (int i = 0; i <= 255; i += step)
+	{
+		Pixel initialPixelEighthOctant(255, 255, 0, 0, 255, 255);
+		Pixel finalPixelEighthOctant(512, i, 255, 255, 0, 255);
+		drawLine(initialPixelEighthOctant, finalPixelEighthOctant);
+	}
 }
-//-----------------------------------------------------------------------------
-void MyGlDraw(void)
+
+void drawCrossHair()
 {
-	int red[4] = {255, 0, 0, 255};
-	int green[4] = {0, 255, 0, 255};
-	int blue[4] = {0, 0, 255, 255};
-	int white[4] = {255, 255, 255, 255};
-	int yellow[4] = {255, 255, 0, 255};
-	//*************************************************************************
-	// Chame aqui as funções do mygl.h
-	//*************************************************************************
+	/* Left -> Right Diagonal */
+	Pixel initialPixelLeftRightDiagonal(0, 0, 255, 255, 255, 255);
+	Pixel finalPixelLeftRightDiagonal(512, 512, 255, 255, 255, 255);
+	drawLine(initialPixelLeftRightDiagonal, finalPixelLeftRightDiagonal);
 
-	/* GRIDDDDDDDDDDDDD */
-	testeOctante();
+	/* Right-> Left Diagonal */
+	Pixel initialPixelRightLeftDiagonal(512, 0, 255, 255, 255, 255);
+	Pixel finalPixelRightLeftDiagonal(0, 512, 255, 255, 255, 255);
+	drawLine(initialPixelRightLeftDiagonal, finalPixelRightLeftDiagonal);
 
+	/* Center Vertical */
+	Pixel initialPixelCenterVertical(255, 0, 255, 255, 255, 255);
+	Pixel finalPixelCenterVertical(255, 512, 255, 255, 255, 255);
+	drawLine(initialPixelCenterVertical, finalPixelCenterVertical);
+
+	/* Center Horizontal */
+	Pixel initialPixelCenterHorizontal(0, 255, 255, 255, 255, 255);
+	Pixel finalPixelCenterHorizontal(511, 255, 255, 255, 255, 255);
+	drawLine(initialPixelCenterHorizontal, finalPixelCenterHorizontal);
+}
+
+void triangleTest()
+{
 	Pixel p1(255, 150, 255, 0, 0, 255);
 	Pixel p2(255, 450, 255, 127, 0, 255);
 	Pixel p3(125, 500, 255, 255, 0, 255);
 
 	drawTriangle(p1, p2, p3);
+}
+//-----------------------------------------------------------------------------
+void MyGlDraw(void)
+{
+	//*************************************************************************
+	// Chame aqui as funções do mygl.h
+	//*************************************************************************
+
+	// octantTest();
+	// drawCrossHair();
+	// triangleTest();
 }
 
 //-----------------------------------------------------------------------------
