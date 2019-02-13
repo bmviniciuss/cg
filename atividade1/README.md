@@ -82,7 +82,7 @@ void putPixel(Pixel pixel)
 
 ## 2 - drawLine(Pixel initialPixel, Pixel finalPixel)
 
-A função drawLine recebe dois pixels como parãmetros, o pixel inicial e o final da linha.
+A função drawLine recebe dois pixels como parâmetros, o pixel inicial e o final da linha.
 
 A rasterização de linhas foi feito utilizando o algoritmo de <i>Bresenham</i>, também chamado de algoritmo do Ponto Médio, baseia-se no argumento de que um segmento de reta, ao ser plotado, deve ser contínuo, ou seja os pixels que compõem um segmento de reta devem ser vizinhos.
 
@@ -90,9 +90,9 @@ A rasterização de linhas foi feito utilizando o algoritmo de <i>Bresenham</i>,
 <img src="./assets/Screenshot_20190212_220249.png" >
 </p>
 
-Como o algoritimo funciona apenas para o primeiro octante. É necessário fazer o espelhamento dos demais octantes para o primeiro.
+Como o algoritmo funciona apenas para o primeiro octante. É necessário fazer o espelhamento dos demais octantes para o primeiro.
 
-Algoritimo para o primeiro Ocatante.
+Algoritmo para o primeiro Ocatante.
 
 ```c++
 void drawLine(Pixel pInitial, Pixel pFinal)
