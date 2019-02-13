@@ -117,15 +117,33 @@ void triangleTest()
 	drawTriangle(p1, p2, p3);
 	drawTriangle(p4, p5, p6);
 }
+
+void pixelTest()
+{
+	int step = 16;
+
+	for (int i = 0; i <= 511; i += step)
+	{
+		Pixel pH(i, 255, 255, 0, 0, 255);
+		putPixel(pH);
+	}
+
+	for (int i = 0; i <= 511; i += step)
+	{
+		Pixel pV(255, i, 255, 255, 0, 255);
+		putPixel(pV);
+	}
+}
 //-----------------------------------------------------------------------------
 void MyGlDraw(void)
 {
 	//*************************************************************************
 	// Chame aqui as funções do mygl.h
 	//*************************************************************************
+	pixelTest();
 	// octantTest();
 	// drawCrossHair();
-	triangleTest();
+	// triangleTest();
 }
 
 //-----------------------------------------------------------------------------

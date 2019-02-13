@@ -33,6 +33,28 @@ Para desenhar um pixel na tela, foi criada uma função putPixel que recebe como
 
 Cada pixel contém um par de coordenadas `(X ,Y)` e os valor RGBA.
 
+<p align="center"> 
+<img src="./assets/Screenshot_20190213_200521.png" >
+</p>
+
+Código da Imagem:
+
+```c++
+int step = 16;
+
+for (int i = 0; i <= 511; i += step)
+{
+  Pixel pH(i, 255, 255, 0, 0, 255);
+  putPixel(pH);
+}
+
+for (int i = 0; i <= 511; i += step)
+{
+  Pixel pV(255, i, 255, 255, 0, 255);
+  putPixel(pV);
+}
+```
+
 ## RGB
 
 O RGB é um sistema de cores aditivas em que as cores vermelho(red), verde(green), azul(blue) são combinadas para formar as demais cores.
@@ -226,15 +248,17 @@ void drawTriangle(Pixel p1, Pixel p2, Pixel p3)
 Código da imagem:
 
 ```c++
-	Pixel p1(255, 150, 255, 0, 0, 255);
-	Pixel p2(255, 450, 255, 127, 0, 255);
-	Pixel p3(125, 500, 255, 255, 0, 255);
-	Pixel p4(280, 150, 255, 0, 0, 255);
-	Pixel p5(490, 15, 0, 255, 0, 255);
-	Pixel p6(400, 450, 0, 0, 255, 255);
+Pixel p1(255, 150, 255, 0, 0, 255);
+Pixel p2(255, 450, 255, 127, 0, 255);
+Pixel p3(125, 500, 255, 255, 0, 255);
+Pixel p4(280, 150, 255, 0, 0, 255);
+Pixel p5(490, 15, 0, 255, 0, 255);
+Pixel p6(400, 450, 0, 0, 255, 255);
 
-	drawTriangle(p1, p2, p3);
-	drawTriangle(p4, p5, p6);
+drawTriangle(p1, p2, p3);
+drawTriangle(p4, p5, p6);
 ```
 
 # Considerações Finais
+
+O objetivo do trabalho foi alcançado, nele foi possível aplicar o algoritimo de <i>Bresenham</i> para desenhar linhas e triângulos na tela, utilizando os conceitos vistos em sala de aula. Contudo, algumas dificuldades foram observadas durante o desenvolvimento, a não familiarização com os conceitos da linguagem `c++` e o cálculo do espelhamento dos octantes foram os principais obstáculos da atividade.
