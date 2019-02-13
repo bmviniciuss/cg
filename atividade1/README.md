@@ -9,6 +9,10 @@
 
 O propósito do trabalho é implementar funções utilizando algoritmos para a rasteirização de primitivas, que possibilitam a formação de pontos e linhas na tela do computador. A rasterização será feita através da escrita direta na memória, para isso foi utilizado o framework fornecido pelo professor que simula o acesso à memória de vídeo.
 
+## Rasterização
+
+É o processo de conversão da representação vetorial de uma imagem para a matricial, essas são armazenadas na memória do vídeo do computador e representadas graficamente e dessa forma, permitindo a formação de imagens no monitor.
+
 ## Funções Implementadas
 
 A princípio, foi criado uma estrutura que irá representar cada pixel. Para isso foi criado uma classe `Pixel` que guarda a posição `X` e `Y`, assim como as componentes do sistema RGBA.
@@ -28,7 +32,16 @@ public:
 Para desenhar um pixel na tela, foi criada uma função putPixel que recebe como parâmetro objeto do tipo `Pixel`. Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele esteja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o cálculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
 
 Cada pixel contém um par de coordenadas `(X ,Y)` e os valor RGBA.
-O RGBA é um sistema de cores aditivas que tem os canais vermelho(red), verde(green), azul(blue) e o alfa (que define a opacidade do pixel) e serve para representar cores.
+
+## RGB
+
+O RGB é um sistema de cores aditivas em que as cores vermelho(red), verde(green), azul(blue) são combinadas para formar as demais cores.
+
+<p align="center"> 
+<img src="./assets/Screenshot_20190213_173253.png" >
+</p>
+
+Contudo na atividade foi utilizado o sistema RGBA, que consitiste no sistema RGB com um canal a mais que representa o alfa, a opacidade da cor. Sendo assim, cada cor é presentada por 4 valores.
 
 ```c++
 void putPixel(Pixel pixel)

@@ -21,7 +21,7 @@ void octantTest()
 	for (int i = 255; i < 512; i += step)
 	{
 		Pixel initialPixelFirstOctant(255, 255, 255, 0, 0, 255);
-		Pixel finalPixelFirstOctant(512, i, 0, 0, 255, 255);
+		Pixel finalPixelFirstOctant(512, i, 0, 0, 255, 0);
 		drawLine(initialPixelFirstOctant, finalPixelFirstOctant);
 	}
 
@@ -123,7 +123,6 @@ void MyGlDraw(void)
 	//*************************************************************************
 	// Chame aqui as funções do mygl.h
 	//*************************************************************************
-
 	// octantTest();
 	// drawCrossHair();
 	triangleTest();
