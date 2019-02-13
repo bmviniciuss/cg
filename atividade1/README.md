@@ -25,7 +25,7 @@ public:
 
 ## 1 - putPixel(Pixel pixel)
 
-Para desenhar um pixel na tela, foi criada uma função putPixel que recebe como parâmetro objeto do tipo `Pixel`. Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele estja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o cálculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
+Para desenhar um pixel na tela, foi criada uma função putPixel que recebe como parâmetro objeto do tipo `Pixel`. Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele esteja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o cálculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
 
 Cada pixel contém um par de coordenadas `(X ,Y)` e os valor RGBA.
 O RGBA é um sistema de cores aditivas que tem os canais vermelho(red), verde(green), azul(blue) e o alfa (que define a opacidade do pixel) e serve para representar cores.
