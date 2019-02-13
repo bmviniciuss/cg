@@ -11,7 +11,7 @@ O propósito do trabalho é implementar funções utilizando algoritmos para a r
 
 ## Funções Implementadas
 
-A principio, foi criado uma estrutura que irá representar cada pixel. Para isso foi criado uma classe `Pixel` que guarda a posição `X` e `Y`, assim como as componentes do sistema RGBA.
+A princípio, foi criado uma estrutura que irá representar cada pixel. Para isso foi criado uma classe `Pixel` que guarda a posição `X` e `Y`, assim como as componentes do sistema RGBA.
 
 ```c++
 class Pixel {
@@ -25,7 +25,7 @@ public:
 
 ## 1 - putPixel(Pixel pixel)
 
-Essa função é responsável por desenhar um pixel, utilizando o framework dado, na tela através da posição e cor.
+Para desenhar um pixel na tela, foi criada uma função putPixel que recebe como parâmetro objeto do tipo `Pixel`. Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele estja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o cálculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
 
 ```c++
 void putPixel(Pixel pixel)
@@ -41,8 +41,6 @@ void putPixel(Pixel pixel)
   FBptr[(pixel.x * 4) + (pixel.y * IMAGE_WIDTH * 4) + 3] = pixel.A;
 }
 ```
-
-Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos limites da janela criada. Caso ele estja dentro dos limites o pixel é posto na "memória de vídeo" simulada aqui pelo `FBptr`. É feito o cálculo de `offset` para saber a posição de cada cor do canal RGBA na memória.
 
 ## 2 - drawLine(Pixel initialPixel, Pixel finalPixel)
 
