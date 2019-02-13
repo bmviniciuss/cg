@@ -262,3 +262,8 @@ drawTriangle(p4, p5, p6);
 # Considerações Finais
 
 O objetivo do trabalho foi alcançado, nele foi possível aplicar o algoritimo de <i>Bresenham</i> para desenhar linhas e triângulos na tela, utilizando os conceitos vistos em sala de aula. Contudo, algumas dificuldades foram observadas durante o desenvolvimento, a não familiarização com os conceitos da linguagem `c++` e o cálculo do espelhamento dos octantes foram os principais obstáculos da atividade.
+
+# Referências
+
+- https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+- Notas de aula do professor Christian Azambuja Pagot
