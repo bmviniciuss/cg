@@ -57,6 +57,64 @@ A rasterização de linhas foi feito utilizando o algoritmo de <i>Bresenham</i>,
 
 Como o algoritimo funciona apenas para o primeiro octante. É necessário fazer o espelhamento dos demais octantes para o primeiro.
 
+Algoritimo para o primeiro Ocatante.
+
+```c++
+void drawLine(Pixel pInitial, Pixel pFinal)
+{
+  /* Compute o dX and dY */
+  int dx = pFinal.x - pInitial.x;
+  int dy = pFinal.y - pInitial.y;
+
+  /* Algorithm's starting point */
+  Pixel currentPixel = pInitial;
+
+  ...
+
+  /* Draw First Pixel*/
+  putPixel(currentPixel);
+
+  /* Check octants */
+  if (dx < 0) // 3rd,4th,5th or 6th octant
+  {
+    // Just flip initial and final points
+    drawLine(pFinal, pInitial);
+  }
+  else // 1st,2nd,7th or 8th octant
+  {
+    if (dy >= 0) // 1st or 2nd octant
+    {
+      if (abs(dx) >= abs(dy)) // 1st octant
+      {
+        // std::cout << "1st\n";
+        /* Compute D for 1st point */
+        int d = 2 * dy - dx;
+
+        /* Increments */
+        int incr_e = 2 * dy;
+        int incr_ne = 2 * (dy - dx);
+        while (currentPixel.x < pFinal.x)
+        {
+          if (d <= 0)
+          {
+            d += incr_e;
+            currentPixel.x++;
+          }
+          else
+          {
+            d += incr_ne;
+            currentPixel.y++;
+            currentPixel.x++;
+          }
+
+          ...
+
+          putPixel(currentPixel);
+        }
+    }
+  }
+```
+
 <p align="center"> 
 <img src="./assets/Screenshot_20190212_223232.png" >
 </p>
@@ -83,7 +141,7 @@ Como o algoritimo funciona apenas para o primeiro octante. É necessário fazer 
   changeA = (double)(pFinal.A - pInitial.A) / abs(direction);
 ```
 
-Primeiro e calculado a direção da linha, para saber se o valor será divido pela taxa de variação em X ou em Y. Depois é calculado a taxa de variação para cada canal de cor. Com a seguinte formula:
+Primeiro é calculado a direção da linha, para saber se o valor será divido pela taxa de variação em X ou em Y. Depois é calculado a taxa de variação para cada canal de cor. Com a seguinte formula:
 `(corFinal - corInicial) / módulo(direção)` com esse valor calculado a cada passagem do algoritmo a cor do pixel é incrementada em cada canal. As variáveis `R`,`G`,`B` e `A` recebem a cor do pixel inicial e com o decorrer do algoritmo os valores são incrementados.
 
 ```c++
