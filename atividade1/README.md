@@ -1,11 +1,11 @@
-## Atividade 1 - Algoritmos de Rasterização
+# Atividade 1 - Algoritmos de Rasterização
 
 ### Trabalho realizado pelos alunos:
 
 - Vinicius Barbosa de Medeiros - 20170003890
 - Jorge Gomes de Melo Júnior - 20170009650
 
-## Objetivo
+# Objetivo
 
 O propósito do trabalho é implementar funções utilizando algoritmos para a rasteirização de primitivas, que possibilitam a formação de pontos e linhas na tela do computador. A rasterização será feita através da escrita direta na memória, para isso foi utilizado o framework fornecido pelo professor que simula o acesso à memória de vídeo.
 
@@ -13,7 +13,7 @@ O propósito do trabalho é implementar funções utilizando algoritmos para a r
 
 É o processo de conversão da representação vetorial de uma imagem para a matricial, essas são armazenadas na memória do vídeo do computador e representadas graficamente e dessa forma, permitindo a formação de imagens no monitor.
 
-## Funções Implementadas
+# Funções Implementadas
 
 A princípio, foi criado uma estrutura que irá representar cada pixel. Para isso foi criado uma classe `Pixel` que guarda a posição `X` e `Y`, assim como as componentes do sistema RGBA.
 
@@ -236,3 +236,5 @@ Código da imagem:
 	drawTriangle(p1, p2, p3);
 	drawTriangle(p4, p5, p6);
 ```
+
+# Considerações Finais
