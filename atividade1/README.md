@@ -46,7 +46,23 @@ Em primeiro lugar é feito uma checagem para saber se o pixel está dentro dos l
 
 ## 2 - drawLine(Pixel initialPixel, Pixel finalPixel)
 
-A função drawLine recebe dois pixels como parãmetros, é utilizado o algoritimo de Bresenham para realizar a rasterização da linha. É feito, também, a interpolação de cores. Que funciona da seguinte forma:
+A função drawLine recebe dois pixels como parãmetros, o pixel inicial e o final da linha.
+
+A rasterização de linhas foi feito utilizando o algoritmo de <i>Bresenham</i>, também chamado de algoritmo do Ponto Médio, baseia-se no argumento de que um segmento de reta, ao ser plotado, deve ser contínuo, ou seja os pixels que compõem um segmento de reta devem ser vizinhos.
+
+<p align="center"> 
+<img src="./assets/Screenshot_20190212_220249.png" >
+</p>
+
+Como o algoritimo funciona apenas para o primeiro octante. É necessário fazer o espelhamento dos demais octantes para o primeiro.
+
+<p align="center"> 
+<img src="./assets/Screenshot_20190212_223232.png" >
+</p>
+
+## Interpolação de Cores
+
+É feito, também, a interpolação de cores. Que funciona da seguinte forma:
 
 ```c++
   /* Rate Direction */
