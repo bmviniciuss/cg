@@ -16,10 +16,9 @@ O pipeline gráfico é definido como uma sequência de etapas onde são realizad
 
 <p align="center"> 
 <img src="./assets/cgTexto.png" >
+    ***Transformações do pipeline gráfico***
 </p>
 
-*[imagem da mudança entre os sistemas de coordenadas]
-aí como legend da img fica: Transformações do pipeline gráfico*
 
 ### Espaço do objeto para o do universo:
 
