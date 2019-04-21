@@ -16,9 +16,8 @@ O pipeline gráfico é definido como uma sequência de etapas onde são realizad
 
 <p align="center"> 
 <img src="./assets/cgTexto.png" >
-    ***Transformações do pipeline gráfico***
 </p>
-
+                                                 ***Transformações do pipeline gráfico***
 
 ### Espaço do objeto para o do universo:
 
