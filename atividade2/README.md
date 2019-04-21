@@ -12,7 +12,7 @@ Jorge Gomes de Melo Junior - 20170009650
 
 ### O que é um pipeline gráfico?
 
-O pipeline gráfico é definido como uma sequência de etapas onde são realizadas transformações nos vértices de um objeto tridimensional para representá-lo em uma tela bidimensional. Todas as transformações foram implementadas em forma de matriz e utilizando coordenadas homogêneas. A seguir vemos todas as etapas do nosso pipeline:
+O pipeline gráfico é definido como uma sequência de etapas onde são realizadas transformações nos vértices de um objeto tridimensional para representá-lo em uma tela bidimensional. Todas as transformações foram implementadas em forma de matriz e utilizando coordenadas homogêneas. A seguir vemos todas as etapas do nosso pipeline:  
 
 <p align="center"> 
 <img src="./assets/cgTexto.png" >
@@ -94,9 +94,9 @@ Essa é a matriz View:
 
 ### Espaço da câmera para o de recorte:
 
-Esta etapa transforma os vértices descritos no espaço da câmera para o espaço do recorte e permite a aplicação da distorção perspectiva, através do produto destes vértices pela matriz chamada Projection Matrix.  
+Esta etapa transforma os vértices descritos no espaço da câmera para o espaço do recorte e permite a aplicação da distorção perspectiva, através do produto destes vértices pela matriz chamada Projection Matrix. Após esta transformação, a coordenada homogênea dos vértices geralmente apresentam valores diferentes de 1. 
 
-A variavél "d" é a distância entre a câmera e o View Plane.
+A variavél __d__ é a distância entre a câmera e o View Plane.
 
       int d = 1;
       
@@ -109,8 +109,36 @@ A matriz de projeção é:
 
 ### Espaço de recorte para o canônico:
 
+Esta etapa transforma os vértices descritos no espaço de recorte para o espaço canônico, dividindo as coordenadas destes vértices pela sua coordenada homogênea.   
+
 
 ### Espaço canônico para o da tela:
+
+Esta etapa transforma os vértices descritos no espaço canônico para o espaço da tela, através do produto destes vértices pela matriz chamada ViewPort Matrix, que essa é resultante da multiplicação de matrizes de translação e escala. 
+
+Implementamos os dados anteriores da seguinte forma:
+
+      glm::mat4x4 mVPTranslate = glm::mat4x4(1, 0, 0, 0,
+                                             0, 1, 0, 0,
+                                             0, 0, 1, 0,
+                                             (IMAGE_WIDTH - 1) / 2, (IMAGE_HEIGHT - 1) / 2, 0, 0);
+                                             
+      glm::mat4x4 mVPScale = glm::mat4x4((IMAGE_WIDTH / 2), 0, 0, 0,
+                                         0, (IMAGE_HEIGHT / 2), 0, 0,
+                                         0, 0, 1, 0,
+                                         0, 0, 0, 1);
+                                         
+      glm::mat4x4 mVPInvert = glm::mat4x4(1, 0, 0, 0,
+                                          0, -1, 0, 0,
+                                          0, 0, 1, 0,
+                                          0, 0, 0, 1);
+                                          
+A matriz ViewPort é:
+
+      glm::mat4x4 mVP = mVPScale * mVPTranslate * mVPInvert;
+
+### Resultados
+
 
 ## Considerações finais
 
