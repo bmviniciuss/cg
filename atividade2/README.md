@@ -14,6 +14,10 @@ Jorge Gomes de Melo Junior - 20170009650
 
 O pipeline gráfico é definido como uma sequência de etapas onde são realizadas transformações nos vértices de um objeto tridimensional para representá-lo em uma tela bidimensional. Todas as transformações foram implementadas em forma de matriz e utilizando coordenadas homogêneas. 
 
+<p align="center"> 
+<img src="./assets/cgTexto.png" >
+</p>
+
 *[imagem da mudança entre os sistemas de coordenadas]
 aí como legend da img fica: Transformações do pipeline gráfico*
 
