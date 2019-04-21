@@ -27,7 +27,7 @@ O espaço objeto é onde cada objeto é criado e moldado a partir de suas primit
 A matriz de translação define a posição do objeto no espaço do universo:  
 
 <p align="center"> 
-<img src="./assets/translacao.png" >
+<img src="./assets/translacao.PNG" >
 </p>
 
 A matriz de escala remimensiona as dimensões do objeto no espaço do universo:  
