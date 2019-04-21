@@ -24,12 +24,23 @@ O espaço objeto é onde cada objeto é criado e moldado a partir de suas primit
 
 *[aqui ficaria as imgs das matrizes] VVV*
 
-A matriz de translação define a posição do objeto no espaço do universo:
+A matriz de translação define a posição do objeto no espaço do universo:  
 
-A matriz de escala remimensiona as dimensões do objeto no espaço do universo:
+<p align="center"> 
+<img src="./assets/translacao.png" >
+</p>
+
+A matriz de escala remimensiona as dimensões do objeto no espaço do universo:  
+
+<p align="center"> 
+<img src="./assets/escala.png" >
+</p>
 
 A matriz de rotação rotaciona o objeto a partir de um ângulo dado no espaço do universo:
 
+<p align="center"> 
+<img src="./assets/rotacao.png" >
+</p>
 
 Implementamos essas matrizes utlizando a biblioteca GLM:
 
@@ -64,7 +75,9 @@ Essa é a matriz Model:
 
 Esta etapa transforma os vértices descritos no espaço do universo para o espaço da câmera, através do produto destes vértices pela matriz chamada View Matrix, que para sua construção são necessárias a posição, o vetor que define a orientação (Up) e o vetor look at da câmera que funcionará como ponto de vista para o espaço. Também é construído um novo sistema de eixos a partir desses parâmetros. 
 
-*[imgs das matrizes]*
+<p align="center"> 
+<img src="./assets/universoCam.png" >
+</p>
 
 Implementamos esses dados da seguinte forma:
 
@@ -96,6 +109,10 @@ Essa é a matriz View:
 
 Esta etapa transforma os vértices descritos no espaço da câmera para o espaço do recorte e permite a aplicação da distorção perspectiva, através do produto destes vértices pela matriz chamada Projection Matrix. Após esta transformação, a coordenada homogênea dos vértices geralmente apresentam valores diferentes de 1. 
 
+<p align="center"> 
+<img src="./assets/camRecorte.png" >
+</p>
+
 A variavél __d__ é a distância entre a câmera e o View Plane.
 
       int d = 1;
@@ -115,6 +132,10 @@ Esta etapa transforma os vértices descritos no espaço de recorte para o espaç
 ### Espaço canônico para o da tela:
 
 Esta etapa transforma os vértices descritos no espaço canônico para o espaço da tela, através do produto destes vértices pela matriz chamada ViewPort Matrix, que essa é resultante da multiplicação de matrizes de translação e escala. 
+
+<p align="center"> 
+<img src="./assets/CanonicoTela.png" >
+</p>
 
 Implementamos os dados anteriores da seguinte forma:
 
