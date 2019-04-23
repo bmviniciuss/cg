@@ -1,16 +1,11 @@
-#define GLM_ENABLE_EXPERIMENTAL
 
 #include <iostream>
 #include <math.h>
 #include <glm/glm.hpp>
 #include <glm/mat4x4.hpp>
-#include <glm/gtx/string_cast.hpp>
-#include "mygl.h"
 #include "definitions.h"
-#include <vector>
-#include "loader.h"
 
-void pipeline(float angle)
+glm::mat4x4 pipelineMatrix(float angle)
 {
 
   // Model Matrix
@@ -83,20 +78,5 @@ void pipeline(float angle)
   // Pipeline Matrix
   glm::mat4x4 mPipeline = mVP * mProjectionView;
 
-  // LoadModel
-  std::vector<glm::vec4> vertices = loadModel("monkey_model.obj");
-
-  for (int i = 0; i < vertices.size(); i++)
-  {
-    vertices[i] = mPipeline * vertices[i];
-    vertices[i] = vertices[i] / vertices[i].w;
-  }
-  srand(time(NULL));
-  for (int i = 0; i < vertices.size(); i += 3)
-  {
-    Pixel p1((int)vertices[i].x, (int)vertices[i].y, rand() % 256, rand() % 256, rand() % 256, 255);
-    Pixel p2((int)vertices[i + 1].x, (int)vertices[i + 1].y, rand() % 256, rand() % 256, rand() % 256, 255);
-    Pixel p3((int)vertices[i + 2].x, (int)vertices[i + 2].y, rand() % 256, rand() % 256, rand() % 256, 255);
-    drawTriangle(p1, p2, p3);
-  }
+  return mPipeline;
 }
