@@ -8,6 +8,17 @@
 // Defina aqui as suas funções gráficas
 //*****************************************************************************
 
+void clearBackground()
+{
+  for (unsigned int i = 0; i < IMAGE_WIDTH * IMAGE_HEIGHT; i++)
+  {
+    FBptr[i * 4] = 0;     //R
+    FBptr[i * 4 + 1] = 0; //G
+    FBptr[i * 4 + 2] = 0; //B
+    FBptr[i * 4 + 3] = 0; //A
+  }
+}
+
 void putPixel(Pixel pixel)
 {
   if (pixel.x < 0 || pixel.x >= IMAGE_WIDTH || pixel.y < 0 || pixel.y >= IMAGE_HEIGHT)
