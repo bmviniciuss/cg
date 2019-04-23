@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "main.h"
-#include "pipeline.h"
+#include "cgPipeline.h"
 
 float angle = 0;
 //-----------------------------------------------------------------------------
@@ -14,7 +14,6 @@ void MyGlDraw(void)
 	{
 		angle = 0;
 	}
-	// clearBackground();
 }
 
 //-----------------------------------------------------------------------------
